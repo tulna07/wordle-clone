@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { sample } from "../../utils";
 import { WORDS } from "../../data";
+import { NUM_OF_GUESSES_ALLOWED } from "../../constants";
 
 // Components
 import GuessInput from "../GuessInput";
@@ -22,7 +23,10 @@ function Game() {
   return (
     <>
       <GuessResults items={guesses} />
-      <GuessInput onAdd={handleAddGuess} />
+      <GuessInput
+        onAdd={handleAddGuess}
+        disabled={guesses.length >= NUM_OF_GUESSES_ALLOWED}
+      />
     </>
   );
 }
