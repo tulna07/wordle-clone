@@ -17,12 +17,11 @@ function Game() {
 
   function handleAddGuess(guess) {
     setGuesses([...guesses, guess]);
-    console.log(guesses);
   }
 
   return (
     <>
-      <GuessResults items={guesses} />
+      <GuessResults items={guesses} answer={answer} />
       <GuessInput
         onAdd={handleAddGuess}
         disabled={guesses.length >= NUM_OF_GUESSES_ALLOWED}
